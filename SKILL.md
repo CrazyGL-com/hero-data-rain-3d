@@ -3,7 +3,7 @@ name: data-rain-3d
 description: "Characters, digits and small symbols fall through a real 3D perspective volume. Near glyphs are large and bright, far ones shrink and dissolve into depth fog. Move the cursor and the falling stream curves around it, like rain hitting an invisible umbrella."
 metadata:
   author: "@ybouane"
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 ## How To Use This Skill

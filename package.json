@@ -1,7 +1,7 @@
 {
 	"name": "@crazygl/hero-data-rain-3d",
-	"version": "0.1.0",
-	"description": "Characters and symbols fall through a 3D perspective volume with real depth, depth fog, and a pointer that bends the stream around it like rain off an invisible umbrella.",
+	"version": "0.1.1",
+	"description": "Data Rain 3D — Characters, digits and small symbols fall through a real 3D perspective volume. Near glyphs are large and bright, far ones shrink and dissolve into depth fog. Move the cursor and the falling stream curves… A customizable CrazyGL animated hero section — WebGL, React, drop-in.",
 	"type": "module",
 	"main": "./dist/index.js",
 	"module": "./dist/index.js",
@@ -21,7 +21,7 @@
 		"LICENSE"
 	],
 	"dependencies": {
-		"@crazygl/core": "^0.1.0",
+		"@crazygl/core": "^0.1.1",
 		"three": "^0.160.0"
 	},
 	"peerDependencies": {
@@ -37,5 +37,33 @@
 	},
 	"publishConfig": {
 		"access": "public"
+	},
+	"keywords": [
+		"3d",
+		"rain",
+		"data",
+		"matrix",
+		"particles",
+		"depth",
+		"fog",
+		"premium",
+		"pointer",
+		"three",
+		"data-rain-3d",
+		"crazygl",
+		"hero",
+		"hero-section",
+		"webgl",
+		"react",
+		"animation",
+		"ui",
+		"landing-page",
+		"interactive",
+		"frontend",
+		"component",
+		"canvas"
+	],
+	"bugs": {
+		"url": "https://github.com/crazygl-com/hero-data-rain-3d/issues"
 	}
 }
