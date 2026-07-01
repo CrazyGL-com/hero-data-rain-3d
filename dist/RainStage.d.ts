@@ -1,0 +1,23 @@
+import * as React from 'react';
+export type RainStageProps = {
+    charset: string;
+    customChars: string;
+    count: number;
+    fallSpeed: number;
+    glyphSize: number;
+    symbolColor: string;
+    headColor: string;
+    backgroundColor: string;
+    depthRange: number;
+    fogDensity: number;
+    cameraFov: number;
+    umbrellaRadius: number;
+    umbrellaStrength: number;
+    transparent: boolean;
+    pointerX: number;
+    pointerY: number;
+    isStatic: boolean;
+    reducedMotion: boolean;
+    rootRef: React.RefObject<HTMLElement>;
+};
+export default function RainStage(props: RainStageProps): import("react/jsx-runtime").JSX.Element;

@@ -1,0 +1,99 @@
+crazygl-hero[data-crazygl="data-rain-3d"] {
+	canvas.crazygl-datarain-canvas {
+		display: block;
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	crazygl-stage {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		overflow: hidden;
+	}
+
+	/* Side scrim: darkens the left where the heading copy lives, plus a gentle
+	   bottom darken, so text stays legible over the rain without touching the
+	   effect's full strength. Colour tracks the chosen backdrop via the inline
+	   CSS var; falls back to near-black. */
+	crazygl-overlay.crazygl-datarain-scrim {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		pointer-events: none;
+		background:
+			linear-gradient(
+				90deg,
+				var(--cgl-datarain-bg, #04060a) 0%,
+				color-mix(in srgb, var(--cgl-datarain-bg, #04060a) 72%, transparent) 24%,
+				transparent 52%
+			),
+			linear-gradient(
+				0deg,
+				color-mix(in srgb, var(--cgl-datarain-bg, #04060a) 55%, transparent) 0%,
+				transparent 34%
+			);
+	}
+
+	/* Content sits above the canvas; managed-width is honored by the core.
+	   When the user picks a font in the customizer the wrapper injects it via
+	   font-family on the root. */
+	crazygl-content {
+		position: absolute;
+		inset: 0;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		pointer-events: none;
+		padding-inline: clamp(1.25rem, 4vw, 4rem);
+
+		.crazygl-datarain-copy {
+			max-width: min(560px, 52vw);
+			color: rgba(255, 255, 255, 0.96);
+			text-shadow:
+				0 1px 0 rgba(255, 255, 255, 0.08),
+				0 4px 34px rgba(0, 0, 0, 0.75),
+				0 0 90px rgba(0, 0, 0, 0.6);
+			pointer-events: auto;
+
+			crazygl-heading,
+			h1 {
+				color: #fff;
+				font-weight: 600;
+				letter-spacing: -0.02em;
+				line-height: 1.04;
+				margin: 0 0 0.55em;
+			}
+
+			crazygl-subheading,
+			p {
+				color: rgba(214, 228, 248, 0.82);
+				line-height: 1.55;
+				margin: 0;
+				max-width: 40ch;
+			}
+
+			crazygl-columns {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: clamp(1.25rem, 3vw, 2.5rem);
+
+				h2 {
+					color: #fff;
+					font-weight: 600;
+					font-size: 1.1rem;
+					letter-spacing: -0.01em;
+					margin: 0 0 0.5em;
+				}
+
+				p {
+					color: rgba(214, 228, 248, 0.78);
+					line-height: 1.5;
+					margin: 0;
+				}
+			}
+		}
+	}
+}

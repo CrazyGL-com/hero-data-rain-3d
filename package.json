@@ -1,0 +1,41 @@
+{
+	"name": "@crazygl/hero-data-rain-3d",
+	"version": "0.1.0",
+	"description": "Characters and symbols fall through a 3D perspective volume with real depth, depth fog, and a pointer that bends the stream around it like rain off an invisible umbrella.",
+	"type": "module",
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		},
+		"./metadata.json": "./metadata.json",
+		"./style.css": "./style.css"
+	},
+	"files": [
+		"dist",
+		"metadata.json",
+		"style.css",
+		"LICENSE"
+	],
+	"dependencies": {
+		"@crazygl/core": "^0.1.0",
+		"three": "^0.160.0"
+	},
+	"peerDependencies": {
+		"react": ">=18",
+		"react-dom": ">=18"
+	},
+	"license": "Apache-2.0",
+	"author": "ybouane",
+	"homepage": "https://crazygl.com/hero/data-rain-3d",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/crazygl-com/hero-data-rain-3d.git"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

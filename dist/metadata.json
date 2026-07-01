@@ -1,0 +1,292 @@
+{
+	"name": "Data Rain 3D",
+	"slug": "data-rain-3d",
+	"version": 1,
+	"description": "Characters, digits and small symbols fall through a real 3D perspective volume. Near glyphs are large and bright, far ones shrink and dissolve into depth fog. Move the cursor and the falling stream curves around it, like rain hitting an invisible umbrella.",
+	"dependencies": [
+		"three"
+	],
+	"authorName": "@ybouane",
+	"authorUrl": "https://x.com/ybouane",
+	"tags": [
+		"3d",
+		"rain",
+		"data",
+		"matrix",
+		"particles",
+		"depth",
+		"fog",
+		"premium",
+		"pointer",
+		"three"
+	],
+	"category": "Premium",
+	"featured": true,
+	"dateCreated": 1781913600000,
+	"poster": "/images/heroes/data-rain-3d.png",
+	"install": {
+		"package": "@crazygl/hero-data-rain-3d"
+	},
+	"config": {
+		"managedWidth": true,
+		"innerWidth": 1180,
+		"managedHeight": true,
+		"defaultHeight": 760,
+		"styleInheritance": "none",
+		"usesCanvas": true,
+		"usesWebGL": true,
+		"usesThree": true,
+		"pointerTracking": true,
+		"resizeTracking": true,
+		"scrollTracking": false,
+		"supportsImages": false,
+		"supportsTransparency": true,
+		"interactive": true,
+		"supportsFontCustomization": true,
+		"interactivityModes": [
+			"pointer",
+			"none"
+		],
+		"interactivity": "pointer"
+	},
+	"customizer": {
+		"sections": [
+			{
+				"label": "Content",
+				"fields": [
+					{
+						"id": "contentType",
+						"label": "Content Type",
+						"type": "select",
+						"default": "heading",
+						"options": [
+							{
+								"label": "Heading",
+								"value": "heading"
+							},
+							{
+								"label": "Two Columns",
+								"value": "two-columns"
+							},
+							{
+								"label": "Custom",
+								"value": "custom"
+							}
+						]
+					},
+					{
+						"id": "heading",
+						"label": "Heading",
+						"type": "text",
+						"default": "Streams of data.",
+						"showWhen": {
+							"contentType": "heading"
+						}
+					},
+					{
+						"id": "subheading",
+						"label": "Subheading",
+						"type": "textarea",
+						"default": "Glyphs fall through a real perspective volume \u2014 near ones large and bright, far ones dissolving into fog. Move the cursor and the rain curves around it like water off an invisible umbrella.",
+						"showWhen": {
+							"contentType": "heading"
+						}
+					},
+					{
+						"id": "column1",
+						"label": "Column 1",
+						"type": "node",
+						"default": "<h2>Real depth</h2><p>Thousands of instanced glyphs scatter through a 3D volume. A perspective camera makes near symbols loom and far ones shrink, and depth fog fades the back of the field to black.</p>",
+						"showWhen": {
+							"contentType": "two-columns"
+						}
+					},
+					{
+						"id": "column2",
+						"label": "Column 2",
+						"type": "node",
+						"default": "<h2>Bend the stream</h2><p>The pointer projects into the volume and pushes glyphs aside with a smooth radial force, so the falling data curves around the cursor instead of passing through it.</p>",
+						"showWhen": {
+							"contentType": "two-columns"
+						}
+					},
+					{
+						"id": "content",
+						"label": "Content",
+						"type": "node",
+						"default": "<h1>Streams of data.</h1>",
+						"showWhen": {
+							"contentType": "custom"
+						}
+					}
+				]
+			},
+			{
+				"label": "Rain",
+				"fields": [
+					{
+						"id": "charset",
+						"label": "Character set",
+						"type": "select",
+						"default": "symbols",
+						"options": [
+							{
+								"label": "Digits (0-9)",
+								"value": "digits"
+							},
+							{
+								"label": "Hex (0-9 A-F)",
+								"value": "hex"
+							},
+							{
+								"label": "Katakana",
+								"value": "katakana"
+							},
+							{
+								"label": "Symbols",
+								"value": "symbols"
+							}
+						],
+						"description": "Which glyphs fall. Hex reads as a data dump; katakana nods to the classic look without the green; symbols feel like signal noise. Overridden by Custom characters when set."
+					},
+					{
+						"id": "customChars",
+						"label": "Custom characters",
+						"type": "text",
+						"default": "",
+						"description": "Type your own glyph set (each character becomes a cell in the atlas). Leave empty to use the Character set above."
+					},
+					{
+						"id": "count",
+						"label": "Symbol count",
+						"type": "slider",
+						"default": 3000,
+						"min": 800,
+						"max": 6000,
+						"step": 50,
+						"description": "How many glyphs fill the volume. Around 3000 reads as a dense, premium downpour; below 1500 feels sparse; 6000 is a full-on data storm."
+					},
+					{
+						"id": "fallSpeed",
+						"label": "Fall speed",
+						"type": "slider",
+						"default": 0.1,
+						"min": 0.01,
+						"max": 1,
+						"step": 0.01,
+						"description": "Gravity of the rain. Near 1 it streaks down steadily; around 0.1 it drifts slowly; near 0.01 it nearly hovers."
+					},
+					{
+						"id": "glyphSize",
+						"label": "Glyph size",
+						"type": "slider",
+						"default": 0.6,
+						"min": 0.5,
+						"max": 3,
+						"step": 0.01,
+						"description": "Base size of each symbol before perspective scaling. Larger reads as bold display type; smaller as fine telemetry."
+					}
+				]
+			},
+			{
+				"label": "Color",
+				"fields": [
+					{
+						"id": "symbolColor",
+						"label": "Symbol colour",
+						"type": "color",
+						"default": "#bcd8ff",
+						"description": "Tint of the falling glyphs. Pale blue-white reads premium and cool; swap to amber for a warmer terminal feel."
+					},
+					{
+						"id": "headColor",
+						"label": "Leading colour",
+						"type": "color",
+						"default": "#ffffff",
+						"description": "Brighter tint for the nearest, freshest glyphs \u2014 the hot leading edge of each stream."
+					},
+					{
+						"id": "backgroundColor",
+						"label": "Background colour",
+						"type": "color",
+						"default": "#04060a",
+						"description": "The near-black behind the rain, and the colour the depth fog fades distant glyphs toward."
+					}
+				]
+			},
+			{
+				"label": "Depth",
+				"fields": [
+					{
+						"id": "depthRange",
+						"label": "Depth range",
+						"type": "slider",
+						"default": 40,
+						"min": 10,
+						"max": 80,
+						"step": 1,
+						"description": "How deep the rain volume runs into the screen. Deeper = more dramatic perspective and more glyphs lost in fog."
+					},
+					{
+						"id": "fogDensity",
+						"label": "Fog density",
+						"type": "slider",
+						"default": 1,
+						"min": 0,
+						"max": 2,
+						"step": 0.01,
+						"description": "How fast distant glyphs fade to the background. 0 = crisp all the way back; 1 = a soft falloff; 2 = only the nearest streams survive."
+					},
+					{
+						"id": "cameraFov",
+						"label": "Camera field of view",
+						"type": "slider",
+						"default": 55,
+						"min": 30,
+						"max": 80,
+						"step": 1,
+						"unit": "\u00b0",
+						"description": "Lens of the perspective camera. Wider FOV exaggerates the rush of near glyphs past the viewer; narrower flattens the depth."
+					}
+				]
+			},
+			{
+				"label": "Pointer",
+				"fields": [
+					{
+						"id": "umbrellaRadius",
+						"label": "Umbrella radius",
+						"type": "slider",
+						"default": 0.4,
+						"min": 0.1,
+						"max": 1,
+						"step": 0.01,
+						"description": "Size of the clear zone the cursor carves out of the rain. Larger sweeps a wider umbrella through the stream."
+					},
+					{
+						"id": "umbrellaStrength",
+						"label": "Umbrella strength",
+						"type": "slider",
+						"default": 1.4,
+						"min": 0,
+						"max": 3,
+						"step": 0.01,
+						"description": "How hard glyphs are pushed aside. 0 lets the rain pass straight through; 1.4 curves it cleanly around the cursor; 3 throws it wide."
+					}
+				]
+			},
+			{
+				"label": "Backdrop",
+				"fields": [
+					{
+						"id": "transparent",
+						"label": "Transparent background",
+						"type": "toggle",
+						"default": false,
+						"description": "Drop the near-black backdrop so the rain composites over your own page background. Depth fog still fades far glyphs toward transparent."
+					}
+				]
+			}
+		]
+	}
+}
